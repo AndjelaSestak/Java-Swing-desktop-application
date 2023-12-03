@@ -214,9 +214,9 @@ public class DlgCircle extends JDialog {
 							else if ((Integer.parseInt(txtRadius.getText().trim()) <= 0))
 								JOptionPane.showMessageDialog(null, "Please, enter value greater than 0!");
 							else {
-								circle=new Circle(new Point(Integer.parseInt(getTxtCoordinateX().getText().toString()),
+								/*circle=new Circle(new Point(Integer.parseInt(getTxtCoordinateX().getText().toString()),
 										Integer.parseInt(getTxtCoordinateY().getText().toString())),Integer.parseInt(getTxtRadius().getText()),
-										btnBorder.getBackground(),btnInner.getBackground());
+										btnBorder.getBackground(),btnInner.getBackground());*/
 								
 								setCOk(true);
 								

@@ -23,6 +23,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import javax.swing.JButton;
+import javax.swing.JColorChooser;
 
 public class FrmDrawing extends JFrame {
 
@@ -30,6 +32,12 @@ public class FrmDrawing extends JFrame {
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private Point startPoint;
 	private JToggleButton tglbtnSelect;
+	private JButton btnInner ;
+	private JButton btnBorder;
+	private Color borderColor;
+	private Color innerColor;
+
+	
 
 	/**
 	 * Launch the application.
@@ -127,6 +135,24 @@ public class FrmDrawing extends JFrame {
 
 			}
 		});
+		
+		btnInner = new JButton("Inner");
+		btnInner.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				innerColor = JColorChooser.showDialog(null, "Select a color", innerColor);
+				btnInner.setBackground(borderColor);
+			}
+		});
+		pnlSouth.add(btnInner);
+		
+		btnBorder = new JButton("Border");
+		btnBorder.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				borderColor = JColorChooser.showDialog(null, "Select a color", borderColor);
+				btnBorder.setBackground(borderColor);
+			}
+		});
+		pnlSouth.add(btnBorder);
 		pnlSouth.add(tglbtnModify);
 
 		tglbtnSelect = new JToggleButton("Select");
@@ -267,5 +293,13 @@ public class FrmDrawing extends JFrame {
 			}
 		});
 
+	}
+	
+	public JButton getBtnInner() {
+		return btnInner;
+	}
+
+	public JButton getBtnBorder() {
+		return btnBorder;
 	}
 }

@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Circle extends ShapesWithSurface {
-	protected Point center;
+	protected Point center = new Point();
 	private int radius;
 
 	public Circle() {

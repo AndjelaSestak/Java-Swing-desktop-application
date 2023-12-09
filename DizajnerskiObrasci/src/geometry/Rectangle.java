@@ -4,9 +4,11 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Rectangle extends ShapesWithSurface {
-	private Point upperLeftPoint;
+	private Point upperLeftPoint = new Point();
 	private int width;
 	private int height;
+	public Color color;
+	public Color innerColor;
 
 	public Rectangle() {
 	}
@@ -29,7 +31,8 @@ public class Rectangle extends ShapesWithSurface {
 	}
 	
 	public Rectangle(Point upperLeftPoint, int width, int height, Color color, Color innerColor) {
-		this(upperLeftPoint, width, height, color);
+		this(upperLeftPoint, width, height);
+		setColor(color);
 		setInnerColor(innerColor);
 	}
 
@@ -100,7 +103,7 @@ public class Rectangle extends ShapesWithSurface {
 	}
 
 	public Point getUpperLeftPoint() {
-		return this.upperLeftPoint;
+		return upperLeftPoint;
 	}
 
 	public void setUpperLeftPoint(Point upperLeftPoint) {

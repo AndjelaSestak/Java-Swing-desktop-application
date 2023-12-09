@@ -86,7 +86,7 @@ public class Point extends Shape {
 	}
 
 	public int getX() {
-		return this.x;
+		return x;
 	}
 
 	public void setX(int x) {

@@ -143,6 +143,8 @@ public class FrmDrawing extends JFrame {
 				btnInner.setBackground(borderColor);
 			}
 		});
+		
+		
 		pnlSouth.add(btnInner);
 		
 		btnBorder = new JButton("Border");

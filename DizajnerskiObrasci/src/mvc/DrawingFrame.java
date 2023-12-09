@@ -19,6 +19,7 @@ import javax.swing.border.EmptyBorder;
 
 import drawing.PnlDrawing;
 import geometry.Point;
+import javax.swing.SwingConstants;
 
 public class DrawingFrame extends JFrame {
 	private JPanel contentPane;
@@ -39,6 +40,12 @@ public class DrawingFrame extends JFrame {
 
 	public DrawingView view = new DrawingView();
 	public DrawingController controller;
+	private JButton btnToFront;
+	private JButton btnToBack;
+	private JButton btnBringToFront;
+	private JButton btnBringToBack;
+	private JButton btnUndo;
+	private JButton btnRedo;
 
 	public DrawingFrame() {
 
@@ -118,6 +125,55 @@ public class DrawingFrame extends JFrame {
 				btnInner.setBackground(innerColor);
 			}
 		});
+		
+		btnToBack = new JButton("To back");
+		btnToBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.toBack();
+			}
+		});
+		
+		btnBringToBack = new JButton("Bring to back");
+		btnBringToBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.bringToBack();
+			}
+		});
+		
+		btnUndo = new JButton("Undo");
+		btnUndo.setHorizontalAlignment(SwingConstants.RIGHT);
+		btnUndo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.undo();
+			}
+		});
+		
+		btnRedo = new JButton("Redo");
+		btnRedo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.redo();
+			}
+		});
+		pnlSouth.add(btnRedo);
+		pnlSouth.add(btnUndo);
+		pnlSouth.add(btnBringToBack);
+		
+		btnBringToFront = new JButton("Bring to front");
+		btnBringToFront.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.bringToFront();
+			}
+		});
+		pnlSouth.add(btnBringToFront);
+		pnlSouth.add(btnToBack);
+		
+		btnToFront = new JButton("To front");
+		btnToFront.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.toFront();
+			}
+		});
+		pnlSouth.add(btnToFront);
 		pnlSouth.add(btnInner);
 
 		btnBorder = new JButton("Border");

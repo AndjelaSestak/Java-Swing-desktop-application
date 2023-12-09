@@ -5,8 +5,8 @@ import java.awt.Graphics;
 
 public class Line extends Shape {
 
-	private Point startPoint;
-	private Point endPoint;
+	private Point startPoint= new Point();
+	private Point endPoint=new Point();
 
 	public Line() {
 	}
@@ -27,7 +27,8 @@ public class Line extends Shape {
 	}
 
 	public Line(Point startPoint, Point endPoint, Color color) {
-		this(startPoint, endPoint);
+		this.startPoint = startPoint;
+		this.endPoint = endPoint;
 		setColor(color);
 	}
 

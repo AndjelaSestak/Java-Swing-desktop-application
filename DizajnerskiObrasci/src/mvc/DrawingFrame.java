@@ -46,6 +46,7 @@ public class DrawingFrame extends JFrame {
 	private JButton btnBringToBack;
 	private JButton btnUndo;
 	private JButton btnRedo;
+	private JToggleButton tglbtnHexagon;
 
 	public DrawingFrame() {
 
@@ -102,6 +103,10 @@ public class DrawingFrame extends JFrame {
 		tglbtnDonut.setFont(new Font("Times New Roman", Font.BOLD, 11));
 		buttonGroup.add(tglbtnDonut);
 		pnlNorth.add(tglbtnDonut);
+		
+		tglbtnHexagon = new JToggleButton("Hexagon");
+		buttonGroup.add(tglbtnHexagon);
+		pnlNorth.add(tglbtnHexagon);
 
 		JPanel pnlSouth = new JPanel();
 		pnlSouth.setBackground(new Color(255, 105, 180));
@@ -249,6 +254,10 @@ public class DrawingFrame extends JFrame {
 
 	public JToggleButton getTglbtnDonut() {
 		return tglbtnDonut;
+	}
+
+	public JToggleButton getTglbtnHexagon() {
+		return tglbtnHexagon;
 	}
 
 }

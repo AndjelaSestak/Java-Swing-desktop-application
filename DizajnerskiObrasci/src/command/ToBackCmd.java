@@ -24,7 +24,6 @@ public class ToBackCmd implements Command {
 			 * drawingModel.remove(shape); 
 			 * drawingModel.getShapes().add(0, shape);
 			 */
-			JOptionPane.showMessageDialog(null, "Shape is all the way back");
 		
 			shapeToFront = drawingModel.getShapes().get(index - 1);
 			drawingModel.getShapes().set(index, shapeToFront);

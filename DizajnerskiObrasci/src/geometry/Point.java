@@ -24,7 +24,7 @@ public class Point extends Shape {
 	}
 
 	public Point(int x, int y, Color color) {
-		this(x,y);
+		this(x, y);
 		setColor(color);
 	}
 
@@ -53,12 +53,12 @@ public class Point extends Shape {
 	@Override
 	public void draw(Graphics g) {
 		g.setColor(getColor());
-		g.drawLine(x-2, y, x+2, y);
-		g.drawLine(x, y-2, x, y+2);
-		
-		if(isSelected()) {
+		g.drawLine(x - 2, y, x + 2, y);
+		g.drawLine(x, y - 2, x, y + 2);
+
+		if (isSelected()) {
 			g.setColor(Color.BLUE);
-			g.drawRect(x-2, y-2, 4, 4);
+			g.drawRect(x - 2, y - 2, 4, 4);
 			g.setColor(Color.BLACK);
 		}
 
@@ -110,6 +110,16 @@ public class Point extends Shape {
 
 		// ispravno, ali necemo samo x koordinatu
 		// return String.valueOf(x);
+	}
+
+	public Point clone(Point point) {
+		//Point point = new Point();
+
+		point.setX(this.getX());
+		point.setY(this.getY());
+		point.setColor(this.getColor());
+
+		return point;
 	}
 
 }

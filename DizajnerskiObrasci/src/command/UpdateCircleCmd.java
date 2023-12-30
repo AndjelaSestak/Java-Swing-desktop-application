@@ -14,7 +14,7 @@ public class UpdateCircleCmd implements Command{
 
 	@Override
 	public void execute() {
-		temp.getCenter().setX(circle.getCenter().getX());
+		/*temp.getCenter().setX(circle.getCenter().getX());
 		temp.getCenter().setY(circle.getCenter().getY());
 		try {
 			temp.setRadius(circle.getRadius());
@@ -34,12 +34,14 @@ public class UpdateCircleCmd implements Command{
 			e.printStackTrace();
 		}
 		circle.setColor(newState.getColor());
-		circle.setInnerColor(newState.getInnerColor());
+		circle.setInnerColor(newState.getInnerColor());*/
+		temp=circle.clone(temp);
+		circle=newState.clone(circle);
 	}
 
 	@Override
 	public void unexecute() {
-		circle.getCenter().setX(temp.getCenter().getX());
+		/*circle.getCenter().setX(temp.getCenter().getX());
 		circle.getCenter().setY(temp.getCenter().getY());
 		try {
 			circle.setRadius(temp.getRadius());
@@ -48,7 +50,8 @@ public class UpdateCircleCmd implements Command{
 			e.printStackTrace();
 		}
 		circle.setColor(temp.getColor());
-		circle.setInnerColor(temp.getInnerColor());
+		circle.setInnerColor(temp.getInnerColor());*/
+		circle=temp.clone(circle);
 	}
 
 }

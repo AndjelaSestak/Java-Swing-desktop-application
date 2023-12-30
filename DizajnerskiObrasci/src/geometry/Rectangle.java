@@ -24,12 +24,12 @@ public class Rectangle extends ShapesWithSurface {
 		this(upperLeftPoint, width, height);
 		setSelected(selected);
 	}
-	
+
 	public Rectangle(Point upperLeftPoint, int width, int height, Color color) {
 		this(upperLeftPoint, width, height);
 		setColor(color);
 	}
-	
+
 	public Rectangle(Point upperLeftPoint, int width, int height, Color color, Color innerColor) {
 		this(upperLeftPoint, width, height);
 		setColor(color);
@@ -72,13 +72,13 @@ public class Rectangle extends ShapesWithSurface {
 		g.setColor(getColor());
 		g.drawRect(upperLeftPoint.getX(), upperLeftPoint.getY(), width, height);
 		this.fill(g);
-		
-		if(isSelected()) {
+
+		if (isSelected()) {
 			g.setColor(Color.blue);
 			g.drawRect(upperLeftPoint.getX() - 2, upperLeftPoint.getY() - 2, 4, 4);
 			g.drawRect(upperLeftPoint.getX() + width - 2, upperLeftPoint.getY() - 2, 4, 4);
 			g.drawRect(upperLeftPoint.getX() - 2, upperLeftPoint.getY() + height - 2, 4, 4);
-			g.drawRect(upperLeftPoint.getX() + width  - 2, upperLeftPoint.getY() + height - 2, 4, 4);
+			g.drawRect(upperLeftPoint.getX() + width - 2, upperLeftPoint.getY() + height - 2, 4, 4);
 			g.setColor(Color.black);
 		}
 	}
@@ -133,8 +133,20 @@ public class Rectangle extends ShapesWithSurface {
 	@Override
 	public void fill(Graphics g) {
 		g.setColor(getInnerColor());
-		g.fillRect(this.getUpperLeftPoint().getX()+1, this.getUpperLeftPoint().getY()+1, this.getWidth()-1, this.getHeight()-1);
-		
+		g.fillRect(this.getUpperLeftPoint().getX() + 1, this.getUpperLeftPoint().getY() + 1, this.getWidth() - 1,
+				this.getHeight() - 1);
+
+	}
+
+	public Rectangle clone(Rectangle rectangle) {
+		//Rectangle rectangle = new Rectangle();
+		rectangle.setHeight(this.getHeight());
+		rectangle.setWidth(this.getWidth());
+		rectangle.getUpperLeftPoint().setX(this.getUpperLeftPoint().getX());
+		rectangle.getUpperLeftPoint().setY(this.getUpperLeftPoint().getY());
+		rectangle.setColor(this.getColor());
+		rectangle.setInnerColor(this.getInnerColor());
+		return rectangle;
 	}
 
 }

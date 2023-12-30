@@ -20,19 +20,17 @@ public class Circle extends ShapesWithSurface {
 		this(center, radius);
 		setSelected(selected);
 	}
-	
+
 	public Circle(Point center, int radius, Color color) {
-		this(center,radius);
+		this(center, radius);
 		setColor(color);
 	}
-	
-	public Circle(Point center, int radius, Color color, Color inner){
-		this(center,radius,color);
-		setInnerColor(inner);
-		
-	}
 
-	
+	public Circle(Point center, int radius, Color color, Color inner) {
+		this(center, radius, color);
+		setInnerColor(inner);
+
+	}
 
 	public boolean equals(Object obj) {
 		if (obj instanceof Circle) {
@@ -66,9 +64,9 @@ public class Circle extends ShapesWithSurface {
 	@Override
 	public void draw(Graphics g) {
 		g.setColor(getColor());
-		g.drawOval(center.getX()-radius, center.getY()-radius, radius+radius, radius+radius);
+		g.drawOval(center.getX() - radius, center.getY() - radius, radius + radius, radius + radius);
 		this.fill(g);
-		
+
 		if (isSelected()) {
 			g.setColor(Color.BLUE);
 			g.drawRect(center.getX() - 2, center.getY() - 2, 4, 4);
@@ -80,11 +78,12 @@ public class Circle extends ShapesWithSurface {
 		}
 
 	}
-	
+
 	@Override
 	public void fill(Graphics g) {
 		g.setColor(getInnerColor());
-		g.fillOval(this.getCenter().getX()-radius, this.getCenter().getY()-radius, radius+radius, radius+radius);
+		g.fillOval(this.getCenter().getX() - radius, this.getCenter().getY() - radius, radius + radius,
+				radius + radius);
 	}
 
 	@Override
@@ -131,7 +130,19 @@ public class Circle extends ShapesWithSurface {
 		return "Center=" + center + ", radius=" + radius;
 	}
 
-	
-	
+	public Circle clone(Circle circle) {
+		//Circle circle = new Circle();
+		try {
+			circle.setRadius(this.getRadius());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		circle.getCenter().setX(this.getCenter().getX());
+		circle.getCenter().setY(this.getCenter().getY());
+		circle.setColor(this.getColor());
+		circle.setInnerColor(this.getInnerColor());
+		return circle;
+	}
 
 }

@@ -15,7 +15,7 @@ public class UpdateHexagonCmd implements Command{
 	}
 	@Override
 	public void execute() {
-		temp.setX(originalHexagon.getX());
+		/*temp.setX(originalHexagon.getX());
 		temp.setY(originalHexagon.getY());
 		temp.setRadius(originalHexagon.getRadius());
 		temp.setInnerColor(originalHexagon.getInnerColor());
@@ -26,16 +26,19 @@ public class UpdateHexagonCmd implements Command{
 		originalHexagon.setRadius(newState.getRadius());
 		originalHexagon.setInnerColor(newState.getInnerColor());
 		originalHexagon.setColor(newState.getColor());
-		
+		*/
+		temp=originalHexagon.clone(temp);
+		originalHexagon=newState.clone(originalHexagon);
 	}
 
 	@Override
 	public void unexecute() {
-		originalHexagon.setX(temp.getX());
+		/*originalHexagon.setX(temp.getX());
 		originalHexagon.setY(temp.getY());
 		originalHexagon.setRadius(temp.getRadius());
 		originalHexagon.setInnerColor(temp.getInnerColor());
-		originalHexagon.setColor(temp.getColor());
+		originalHexagon.setColor(temp.getColor());*/
+		originalHexagon=temp.clone(originalHexagon);
 		
 	}
 

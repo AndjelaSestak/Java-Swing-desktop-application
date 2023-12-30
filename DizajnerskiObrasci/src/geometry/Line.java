@@ -5,8 +5,8 @@ import java.awt.Graphics;
 
 public class Line extends Shape {
 
-	private Point startPoint= new Point();
-	private Point endPoint=new Point();
+	private Point startPoint = new Point();
+	private Point endPoint = new Point();
 
 	public Line() {
 	}
@@ -54,11 +54,11 @@ public class Line extends Shape {
 	public void draw(Graphics g) {
 		g.setColor(getColor());
 		g.drawLine(startPoint.getX(), startPoint.getY(), endPoint.getX(), endPoint.getY());
-		
-		if(isSelected()) {
+
+		if (isSelected()) {
 			g.setColor(Color.BLUE);
-			g.drawRect(startPoint.getX()-2, startPoint.getY()-2, 4, 4);
-			g.drawRect(endPoint.getX()-2, endPoint.getY()-2, 4, 4);
+			g.drawRect(startPoint.getX() - 2, startPoint.getY() - 2, 4, 4);
+			g.drawRect(endPoint.getX() - 2, endPoint.getY() - 2, 4, 4);
 			g.setColor(Color.BLACK);
 		}
 	}
@@ -102,5 +102,17 @@ public class Line extends Shape {
 
 	public String toString() {
 		return startPoint + "-- >" + endPoint;
+	}
+
+	public Line clone(Line line) {
+		//Line line = new Line();
+
+		line.getStartPoint().setX(this.getStartPoint().getX());
+		line.getStartPoint().setY(this.getStartPoint().getY());
+		line.getEndPoint().setX(this.getEndPoint().getX());
+		line.getEndPoint().setY(this.getEndPoint().getY());
+		line.setColor(this.getColor());
+
+		return line;
 	}
 }

@@ -14,7 +14,7 @@ public class UpdateDonutCmd implements Command {
 
 	@Override
 	public void execute() {
-		temp.getCenter().setX(donut.getCenter().getX());
+		/*temp.getCenter().setX(donut.getCenter().getX());
 		temp.getCenter().setY(donut.getCenter().getY());
 		try {
 			temp.setRadius(donut.getRadius());
@@ -36,13 +36,14 @@ public class UpdateDonutCmd implements Command {
 		}
 		donut.setInnerRadius(newState.getInnerRadius());
 		donut.setColor(newState.getColor());
-		donut.setInnerColor(newState.getInnerColor());
-
+		donut.setInnerColor(newState.getInnerColor());*/
+		temp=donut.clone(temp);
+		donut=newState.clone(donut);
 	}
 
 	@Override
 	public void unexecute() {
-		donut.getCenter().setX(temp.getCenter().getX());
+		/*donut.getCenter().setX(temp.getCenter().getX());
 		donut.getCenter().setY(temp.getCenter().getY());
 		try {
 			donut.setRadius(temp.getRadius());
@@ -52,8 +53,8 @@ public class UpdateDonutCmd implements Command {
 		}
 		donut.setInnerRadius(temp.getInnerRadius());
 		donut.setColor(temp.getColor());
-		donut.setInnerColor(temp.getInnerColor());
-
+		donut.setInnerColor(temp.getInnerColor());*/
+		donut=temp.clone(donut);
 	}
 
 }

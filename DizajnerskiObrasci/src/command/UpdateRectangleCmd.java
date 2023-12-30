@@ -17,7 +17,7 @@ public class UpdateRectangleCmd implements Command{
 
 	@Override
 	public void execute() {
-		temp.getUpperLeftPoint().setX(rectangle.getUpperLeftPoint().getX());
+		/*(temp.getUpperLeftPoint().setX(rectangle.getUpperLeftPoint().getX());
 		temp.getUpperLeftPoint().setY(rectangle.getUpperLeftPoint().getY());
 		temp.setHeight(rectangle.getHeight());
 		temp.setWidth(rectangle.getWidth());
@@ -30,17 +30,19 @@ public class UpdateRectangleCmd implements Command{
 		rectangle.setHeight(newState.getHeight());
 		rectangle.setWidth(newState.getWidth());
 		rectangle.setColor(newState.getColor());
-		rectangle.setInnerColor(newState.getInnerColor());
-		
+		rectangle.setInnerColor(newState.getInnerColor());*/
+		temp=rectangle.clone(temp);
+		rectangle=newState.clone(rectangle);
 	}
 
 	@Override
 	public void unexecute() {
-		rectangle.getUpperLeftPoint().setX(temp.getUpperLeftPoint().getX());
+		/*rectangle.getUpperLeftPoint().setX(temp.getUpperLeftPoint().getX());
 		rectangle.getUpperLeftPoint().setY(temp.getUpperLeftPoint().getY());
 		rectangle.setHeight(temp.getHeight());
 		rectangle.setWidth(temp.getWidth());
 		rectangle.setColor(temp.getColor());
-		rectangle.setInnerColor(temp.getInnerColor());
+		rectangle.setInnerColor(temp.getInnerColor());*/
+		rectangle=temp.clone(rectangle);
 	}
 }

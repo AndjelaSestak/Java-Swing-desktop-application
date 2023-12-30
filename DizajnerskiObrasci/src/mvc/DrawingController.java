@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Stack;
 
 import javax.swing.JOptionPane;
@@ -66,6 +67,7 @@ public class DrawingController {
 	private BringToFrontCmd bringToFrontCmd;
 	private ArrayList<Shape> selectedShapes = new ArrayList();
 	private ArrayList<Command> commands = new ArrayList();
+	private Stack<Integer> deleteInfo = new Stack<Integer>();
 	// private Stack<Command> undoStack= new Stack<>();
 	private Stack<Command> redoStack = new Stack<>();
 
@@ -482,7 +484,8 @@ public class DrawingController {
 							JOptionPane.YES_NO_OPTION);
 
 					if (selectedOption == JOptionPane.YES_OPTION) {
-						removeShapeCmd = new RemoveShapeCmd(model, model.getShapes().get(i), selectedShapes);
+						deleteInfo.push(model.getShapes().indexOf(selectedShapes.get(i)));
+						removeShapeCmd = new RemoveShapeCmd(model, model.getShapes().get(i), selectedShapes,deleteInfo);//izmena
 						selectedShapes.remove(model.getShapes().get(i));
 						removeShapeCmd.execute();
 						commands.add(removeShapeCmd);
@@ -500,7 +503,10 @@ public class DrawingController {
 					"Warning message", JOptionPane.YES_NO_OPTION);
 			if (selectedOption == JOptionPane.YES_OPTION) {
 				for (int i = selectedShapes.size() - 1; i >= 0; i--) {
-					removeShapeCmd = new RemoveShapeCmd(model, selectedShapes.get(i), selectedShapes);
+					deleteInfo.push(model.getShapes().indexOf(selectedShapes.get(i)));
+					System.out.println("u delete info je smesten "+deleteInfo.peek());
+					System.out.println("delete info velicina"+deleteInfo.size());
+					removeShapeCmd = new RemoveShapeCmd(model, selectedShapes.get(i), selectedShapes,deleteInfo);//izmena
 					removeShapeCmd.execute();
 					commands.add(removeShapeCmd);
 					selectedShapes.remove(i);

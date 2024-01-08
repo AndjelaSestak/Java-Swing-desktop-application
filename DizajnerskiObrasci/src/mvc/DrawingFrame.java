@@ -20,6 +20,7 @@ import javax.swing.border.EmptyBorder;
 import drawing.PnlDrawing;
 import geometry.Point;
 import javax.swing.SwingConstants;
+import javax.swing.JTextArea;
 
 public class DrawingFrame extends JFrame {
 	private JPanel contentPane;
@@ -46,7 +47,14 @@ public class DrawingFrame extends JFrame {
 	private JButton btnBringToBack;
 	private JButton btnUndo;
 	private JButton btnRedo;
+	private JToggleButton tglbtnDelete;
+	private JToggleButton tglbtnModify; 
 	private JToggleButton tglbtnHexagon;
+	private JTextArea textArea;
+	private JTextArea textArea_1;
+	private JPanel panelWest;
+	private JTextArea textArea_2;
+	private JTextArea textArea_3;
 
 	public DrawingFrame() {
 
@@ -112,7 +120,8 @@ public class DrawingFrame extends JFrame {
 		pnlSouth.setBackground(new Color(255, 105, 180));
 		contentPane.add(pnlSouth, BorderLayout.SOUTH);
 
-		JToggleButton tglbtnModify = new JToggleButton("Modify");
+		tglbtnModify = new JToggleButton("Modify");
+		tglbtnModify.setEnabled(false);
 		tglbtnModify.setBackground(new Color(255, 245, 238));
 		tglbtnModify.setFont(new Font("Times New Roman", Font.BOLD, 11));
 		buttonGroup.add(tglbtnModify);
@@ -132,6 +141,7 @@ public class DrawingFrame extends JFrame {
 		});
 		
 		btnToBack = new JButton("To back");
+		btnToBack.setEnabled(false);
 		btnToBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controller.toBack();
@@ -139,6 +149,7 @@ public class DrawingFrame extends JFrame {
 		});
 		
 		btnBringToBack = new JButton("Bring to back");
+		btnBringToBack.setEnabled(false);
 		btnBringToBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controller.bringToBack();
@@ -146,6 +157,7 @@ public class DrawingFrame extends JFrame {
 		});
 		
 		btnUndo = new JButton("Undo");
+		btnUndo.setEnabled(false);
 		btnUndo.setHorizontalAlignment(SwingConstants.RIGHT);
 		btnUndo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -154,6 +166,7 @@ public class DrawingFrame extends JFrame {
 		});
 		
 		btnRedo = new JButton("Redo");
+		btnRedo.setEnabled(false);
 		btnRedo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controller.redo();
@@ -164,6 +177,7 @@ public class DrawingFrame extends JFrame {
 		pnlSouth.add(btnBringToBack);
 		
 		btnBringToFront = new JButton("Bring to front");
+		btnBringToFront.setEnabled(false);
 		btnBringToFront.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controller.bringToFront();
@@ -173,6 +187,7 @@ public class DrawingFrame extends JFrame {
 		pnlSouth.add(btnToBack);
 		
 		btnToFront = new JButton("To front");
+		btnToFront.setEnabled(false);
 		btnToFront.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controller.toFront();
@@ -193,6 +208,7 @@ public class DrawingFrame extends JFrame {
 		pnlSouth.add(tglbtnModify);
 
 		tglbtnSelect = new JToggleButton("Select");
+		tglbtnSelect.setEnabled(false);
 		tglbtnSelect.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				startPoint = null;
@@ -203,7 +219,8 @@ public class DrawingFrame extends JFrame {
 		buttonGroup.add(tglbtnSelect);
 		pnlSouth.add(tglbtnSelect);
 
-		JToggleButton tglbtnDelete = new JToggleButton("Delete");
+		tglbtnDelete = new JToggleButton("Delete");
+		tglbtnDelete.setEnabled(false);
 		tglbtnDelete.setBackground(new Color(255, 245, 238));
 		tglbtnDelete.setFont(new Font("Times New Roman", Font.BOLD, 11));
 		buttonGroup.add(tglbtnDelete);
@@ -213,6 +230,10 @@ public class DrawingFrame extends JFrame {
 			}
 		});
 		pnlSouth.add(tglbtnDelete);
+		
+		textArea_3 = new JTextArea(10,60);
+		pnlSouth.add(textArea_3);
+		
 		pnlDrawing.setBackground(Color.white);
 	}
 
@@ -259,5 +280,39 @@ public class DrawingFrame extends JFrame {
 	public JToggleButton getTglbtnHexagon() {
 		return tglbtnHexagon;
 	}
+
+	public JButton getBtnToFront() {
+		return btnToFront;
+	}
+
+	public JButton getBtnToBack() {
+		return btnToBack;
+	}
+
+	public JButton getBtnBringToFront() {
+		return btnBringToFront;
+	}
+
+	public JButton getBtnBringToBack() {
+		return btnBringToBack;
+	}
+
+	public JButton getBtnUndo() {
+		return btnUndo;
+	}
+
+	public JButton getBtnRedo() {
+		return btnRedo;
+	}
+
+	public JToggleButton getTglbtnDelete() {
+		return tglbtnDelete;
+	}
+
+	public JToggleButton getTglbtnModify() {
+		return tglbtnModify;
+	}
+	
+	
 
 }

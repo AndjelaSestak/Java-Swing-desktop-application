@@ -41,5 +41,10 @@ public class UpdateHexagonCmd implements Command{
 		originalHexagon=temp.clone(originalHexagon);
 		
 	}
+	
+	public String toString()
+	{
+		return "Modify hexagon -> " + newState.toString();
+	}
 
 }

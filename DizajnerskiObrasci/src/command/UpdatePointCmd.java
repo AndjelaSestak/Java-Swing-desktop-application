@@ -33,4 +33,9 @@ public class UpdatePointCmd implements Command{
 		point.setColor(temp.getColor());*/
 		point=temp.clone(point);
 	}
+	
+	public String toString()
+	{
+		return "Modify point -> " + newState.toString();
+	}
 }

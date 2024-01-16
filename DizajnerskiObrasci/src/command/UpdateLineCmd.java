@@ -44,5 +44,10 @@ public class UpdateLineCmd implements Command {
 		 */
 		line = temp.clone(line);
 	}
+	
+	public String toString()
+	{
+		return "Modify line -> " + newState.toString();
+	}
 
 }

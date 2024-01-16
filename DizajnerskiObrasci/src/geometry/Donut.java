@@ -135,7 +135,7 @@ public class Donut extends Circle {
 
 	public String toString() {
 		// Center=(x,y), radius= radius
-		return super.toString() + ", innerRadius=" + innerRadius;
+		return super.toString()+", innerRadius= "+innerRadius;
 	}
 
 	public Donut clone(Donut donut) {

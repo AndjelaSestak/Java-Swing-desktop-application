@@ -2,8 +2,9 @@ package geometry;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.io.Serializable;
 
-public class Line extends Shape {
+public class Line extends Shape implements Serializable {
 
 	private Point startPoint = new Point();
 	private Point endPoint = new Point();
@@ -101,11 +102,13 @@ public class Line extends Shape {
 	}
 
 	public String toString() {
-		return startPoint + "-- >" + endPoint;
+		return "(" + startPoint.getX() + "," + startPoint.getY() + ") - (" + endPoint.getX() + "," + endPoint.getY()
+				+ "), borderColor= (" + getColor().getRed() + "," + getColor().getGreen() + ","
+				+ getColor().getBlue() + ")";
 	}
 
 	public Line clone(Line line) {
-		//Line line = new Line();
+		// Line line = new Line();
 
 		line.getStartPoint().setX(this.getStartPoint().getX());
 		line.getStartPoint().setY(this.getStartPoint().getY());

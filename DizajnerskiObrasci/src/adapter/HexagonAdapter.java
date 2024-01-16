@@ -2,10 +2,12 @@ package adapter;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.io.Serializable;
+
 import geometry.ShapesWithSurface;
 import hexagon.Hexagon;
 
-public class HexagonAdapter extends ShapesWithSurface {
+public class HexagonAdapter extends ShapesWithSurface implements Serializable{
 
 	private Hexagon hexagon = new Hexagon(1, 1, 1);
 
@@ -71,6 +73,19 @@ public class HexagonAdapter extends ShapesWithSurface {
 		// TODO Auto-generated method stub
 		hexagon.paint(g);
 	}
+	
+	public boolean equals(Object obj) {
+		if (obj instanceof HexagonAdapter) {
+			HexagonAdapter pomocni = (HexagonAdapter) obj;
+			if (this.getX() == pomocni.getX() && this.getY() == pomocni.getY() && this.getRadius()==pomocni.getRadius()) {
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			return false;
+		}
+	}
 
 	public Color getInnerColor() {
 		return hexagon.getAreaColor();
@@ -118,6 +133,11 @@ public class HexagonAdapter extends ShapesWithSurface {
 
 	public void setY(int y) {
 		hexagon.setY(y);
+	}
+	
+	public String toString() {
+		return "Center " + "(" + getX() + "," + getY() + ")" + ", radius= " + getRadius() + ", borderColor= (" + getColor().getRed() + "," + getColor().getGreen() + "," + getColor().getBlue() + ")"
+	        + ", innerColor= (" + getInnerColor().getRed() + "," + getInnerColor().getGreen() + "," + getInnerColor().getBlue() + ")"; 
 	}
 
 	public HexagonAdapter clone(HexagonAdapter hexagon) {

@@ -45,4 +45,9 @@ public class UpdateRectangleCmd implements Command{
 		rectangle.setInnerColor(temp.getInnerColor());*/
 		rectangle=temp.clone(rectangle);
 	}
+	
+	public String toString()
+	{
+		return "Modify rectangle -> " + newState.toString();
+	}
 }

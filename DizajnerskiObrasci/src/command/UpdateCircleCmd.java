@@ -53,5 +53,10 @@ public class UpdateCircleCmd implements Command{
 		circle.setInnerColor(temp.getInnerColor());*/
 		circle=temp.clone(circle);
 	}
+	
+	public String toString()
+	{
+		return "Modify circle " + circle.toString();
+	}
 
 }

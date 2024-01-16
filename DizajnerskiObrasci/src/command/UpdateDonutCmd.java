@@ -56,5 +56,10 @@ public class UpdateDonutCmd implements Command {
 		donut.setInnerColor(temp.getInnerColor());*/
 		donut=temp.clone(donut);
 	}
+	
+	public String toString()
+	{
+		return "Modify donut -> " + newState.toString();
+	}
 
 }

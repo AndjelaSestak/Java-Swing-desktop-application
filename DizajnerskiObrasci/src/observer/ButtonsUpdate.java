@@ -25,7 +25,6 @@ public class ButtonsUpdate implements PropertyChangeListener{
 	@Override
 	public void propertyChange(PropertyChangeEvent evt) {
 		// TODO Auto-generated method stub
-		System.out.println("Property changed: " + evt.getPropertyName());
 		if(evt.getPropertyName().equals("buttonSelect")) {
 			
 			this.selectButton=(boolean)evt.getNewValue();

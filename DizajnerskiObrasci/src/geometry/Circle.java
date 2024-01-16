@@ -2,8 +2,9 @@ package geometry;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.io.Serializable;
 
-public class Circle extends ShapesWithSurface {
+public class Circle extends ShapesWithSurface implements Serializable{
 	protected Point center = new Point();
 	private int radius;
 
@@ -127,7 +128,8 @@ public class Circle extends ShapesWithSurface {
 
 	public String toString() {
 		// Center=(x,y), radius= radius
-		return "Center=" + center + ", radius=" + radius;
+		return "Center= (" + center.getX() + "," + center.getY() + "), radius= " + radius + ", borderColor= (" + getColor().getRed() + "," + getColor().getGreen() + "," + getColor().getBlue() + ")"
+        + ", innerColor= (" + getInnerColor().getRed() + "," + getInnerColor().getGreen() + "," + getInnerColor().getBlue() + ")";
 	}
 
 	public Circle clone(Circle circle) {

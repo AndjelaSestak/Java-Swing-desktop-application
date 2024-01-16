@@ -2,8 +2,9 @@ package geometry;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.io.Serializable;
 
-public class Rectangle extends ShapesWithSurface {
+public class Rectangle extends ShapesWithSurface implements Serializable{
 	private Point upperLeftPoint = new Point();
 	private int width;
 	private int height;
@@ -127,7 +128,9 @@ public class Rectangle extends ShapesWithSurface {
 	}
 
 	public String toString() {
-		return "Upper left point:" + upperLeftPoint + ", width =" + width + ",height = " + height;
+		return "Upper left point (" + upperLeftPoint.getX() + "," + upperLeftPoint.getY() + "), width=" + width
+				+ ", height=" + height + " , borderColor= (" + getColor().getRed() + "," + getColor().getGreen() + "," + getColor().getBlue() + ")"
+	        + ", innerColor= (" + getInnerColor().getRed() + "," + getInnerColor().getGreen() + "," + getInnerColor().getBlue() + ")";
 	}
 
 	@Override
@@ -139,7 +142,7 @@ public class Rectangle extends ShapesWithSurface {
 	}
 
 	public Rectangle clone(Rectangle rectangle) {
-		//Rectangle rectangle = new Rectangle();
+		// Rectangle rectangle = new Rectangle();
 		rectangle.setHeight(this.getHeight());
 		rectangle.setWidth(this.getWidth());
 		rectangle.getUpperLeftPoint().setX(this.getUpperLeftPoint().getX());

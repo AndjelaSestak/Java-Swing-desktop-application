@@ -2,8 +2,9 @@ package geometry;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.io.Serializable;
 
-public abstract class ShapesWithSurface extends Shape {
+public abstract class ShapesWithSurface extends Shape implements Serializable{
 
 	private Color innerColor;
 	
